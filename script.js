@@ -9,6 +9,7 @@ const h1Finish = document.querySelector('.finish');
 let round = 0;
 
 function playRound(playerSelection, computerSelection) {
+    paraRound.style.color = "white"
     if (computerSelection === 'ROCK') {
         if (playerSelection === 'SCISSORS') {
             console.log(`Rock beats Scissors. The computer wins.`)
@@ -58,8 +59,8 @@ function game(playerChoice) {
         console.log(`The score is:`);
         console.log('Computer: ' + computerScore)
         console.log('Player: ' + playerScore)
-        paraPcChoice.innerHTML = 'Player: ' + playerScore
-        paraNpcChoice.innerHTML = 'Computer: ' + computerScore
+        paraPcChoice.innerHTML = playerScore
+        paraNpcChoice.innerHTML = computerScore
         round++
         paraRound.innerHTML = 'Round ' + round + ' / 5'
     if (round === 5) {
@@ -88,20 +89,23 @@ function finishGame() {
         computerScore = 0;
         playerScore = 0;
         round = 0;
-        h1Finish.innerHTML = '*** CONGRATULATIONS! YOU WON! ***'
+        paraRound.style.color = "green"
+        paraRound.innerHTML = 'YOU WIN'
     } 
     else if (playerScore < computerScore) {
         console.log('*** SORRY BUT THE COMPUTER HAS WON ***')
         computerScore = 0;
         playerScore = 0;
         round = 0;
-        h1Finish.innerHTML = '*** SORRY BUT THE COMPUTER HAS WON ***'
+        paraRound.style.color = "red"
+        paraRound.innerHTML = 'YOU LOOSE'
     } else {
         console.log(`*** IT'S A TIE! ***`)
         computerScore = 0;
         playerScore = 0;
         round = 0;
-        h1Finish.innerHTML = `*** IT'S A TIE! ***`
+        paraRound.style.color = "white"
+        paraRound.innerHTML = `IT'S A TIE!`
 
     }
 
