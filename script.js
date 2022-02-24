@@ -76,8 +76,11 @@ function playRound(playerSelection, computerSelection) {
         roboScissors.style.backgroundColor = '#555';
         roboPaper.style.backgroundColor = '#555';
         playerRock.style.backgroundColor = '#555'
+        playerRock.blur();
         playerPaper.style.backgroundColor = '#555'
+        playerPaper.blur();
         playerScissors.style.backgroundColor = '#555'
+        playerScissors.blur();
         if (round < 5) {
         btnEnable();
         } else {
@@ -144,6 +147,9 @@ function finishGame() {
     windowOverlay.classList.remove('hidden');
     paraGameOver.classList.remove('hidden')
     btnReset.classList.remove('hidden');
+    window.setTimeout(function() {
+        windowOverlay.style.opacity = '1';
+      }, 250); 
 }
 
 function restartGame() {
@@ -157,7 +163,10 @@ function restartGame() {
     btnReset.classList.add('hidden')
     paraGameOver.classList.add('hidden')
     paraGameOver.innerHTML = 'Game Over<br />'
-    windowOverlay.classList.add('hidden')
+    windowOverlay.style.opacity = '0';
+    window.setTimeout(function() {
+        windowOverlay.classList.add('hidden')
+    }, 250); 
     document.body.style.overflow = 'auto'
     playerRock.disabled = false;
     playerPaper.disabled = false;
