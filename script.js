@@ -123,8 +123,8 @@ function finishGame() {
 }
 
 function restartGame() {
-    paraPcChoice.innerHTML = '';
-    paraNpcChoice.innerHTML = '';
+    paraPcChoice.innerHTML = '0';
+    paraNpcChoice.innerHTML = '0';
     round = 0;
     paraRound.innerHTML = 'Round ' + round + ' / 5'
     paraRound.style.color = "white";
