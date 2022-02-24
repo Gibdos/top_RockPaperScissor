@@ -6,49 +6,57 @@ const paraPcChoice = document.querySelector('.pcScore');
 const paraNpcChoice = document.querySelector('.npcScore');
 const paraRound = document.querySelector('.round');
 const h1Finish = document.querySelector('.finish');
+const roboRock = document.querySelector('.roboRock');
+const roboPaper = document.querySelector('.roboPaper');
+const roboScissors = document.querySelector('.roboScissors');
+const playerRock = document.querySelector('.rock');
+const playerPaper = document.querySelector('.paper');
+const playerScissors = document.querySelector('.scissors');
 let round = 0;
 
 function playRound(playerSelection, computerSelection) {
     paraRound.style.color = "white"
     if (computerSelection === 'ROCK') {
+        roboRock.style.backgroundColor = 'rebeccapurple';
         if (playerSelection === 'SCISSORS') {
-            console.log(`Rock beats Scissors. The computer wins.`)
             computerScore++;
         }
         else if (playerSelection === 'ROCK') {
-            console.log(`You both chose Rock. It's a tie`)
         }
         else {
-            console.log(`Paper beats Rock. You win!`)
             playerScore++
         }
     }
     if (computerSelection === 'SCISSORS') {
+        roboScissors.style.backgroundColor = 'rebeccapurple';
         if (playerSelection === 'PAPER') {
-            console.log(`Scissors beats Paper. The computer wins.`)
             computerScore++;
         }
         else if (playerSelection === 'SCISSORS') {
-            console.log(`You both chose Scissors. It's a tie`)
         }
         else {
-            console.log(`Rock beats Scissors. You win!`)
             playerScore++
         }
     }
     if (computerSelection === 'PAPER') {
+        roboPaper.style.backgroundColor = 'rebeccapurple';
         if (playerSelection === 'ROCK') {
-            console.log(`Paper beats Rock. The computer wins.`)
             computerScore++;
         }
         else if (playerSelection === 'PAPER') {
-            console.log(`You both chose Paper. It's a tie`)
         }
         else {
-            console.log(`Scissors beats Rock. You win!`)
             playerScore++
         }
     }
+    setTimeout(function() {
+        roboRock.style.backgroundColor = '#555';
+        roboScissors.style.backgroundColor = '#555';
+        roboPaper.style.backgroundColor = '#555';
+        playerRock.style.backgroundColor = '#555'
+        playerPaper.style.backgroundColor = '#555'
+        playerScissors.style.backgroundColor = '#555'
+    }, 800);
   }
 
 function game(playerChoice) {
@@ -56,9 +64,6 @@ function game(playerChoice) {
         let computerSelection = computerPlay.toUpperCase();
         let playerSelection = playerChoice.toUpperCase();
         playRound(playerSelection, computerSelection);
-        console.log(`The score is:`);
-        console.log('Computer: ' + computerScore)
-        console.log('Player: ' + playerScore)
         paraPcChoice.innerHTML = playerScore
         paraNpcChoice.innerHTML = computerScore
         round++
@@ -70,16 +75,19 @@ function game(playerChoice) {
 
 function chooserock() {
     playerSelectionQuestion = 'Rock'
+    playerRock.style.backgroundColor = 'rebeccapurple'
     game('Rock');
 }
 
 function choosepaper() {
     playerSelectionQuestion = 'Paper'
+    playerPaper.style.backgroundColor = 'rebeccapurple'
     game('Paper');
 }
 
 function choosescissors() {
     playerSelectionQuestion = 'Scissors'
+    playerScissors.style.backgroundColor = 'rebeccapurple'
     game('Scissors');
 }
 
@@ -110,3 +118,7 @@ function finishGame() {
     }
 
 }
+
+// const playerRock = document.querySelector('.rock');
+// const playerPaper = document.querySelector('.paper');
+// const playerScissors = document.querySelector('.scissors');

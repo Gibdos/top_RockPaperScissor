@@ -12,10 +12,16 @@
     <h1 class="title">Rock Paper Scissors</h1>
     <p>Choose your weapon</p>
     <div class="grid choice">
-    <button class="rock" onclick="chooserock()">Rock</button>
-    <button class="paper" onclick="choosepaper()">Paper</button>
-    <button class="scissors" onclick="choosescissors()">Scissors</button>
-</div>
+        <button class="rock" onclick="chooserock()">Rock</button>
+        <button class="paper" onclick="choosepaper()">Paper</button>
+        <button class="scissors" onclick="choosescissors()">Scissors</button>
+    </div>
+        <p>The Computer chose</p>
+        <div class="roboChoice grid">
+        <button class="roboRock">Rock</button>
+        <button class="roboPaper">Paper</button>
+        <button class="roboScissors">Scissors</button>
+    </div>
     <p class="round">Round 0 / 5 </p>
 
     <h2>Score</h2>
@@ -28,7 +34,6 @@
         <p></p>
         <p class="pcScore"></p>
         </div>
-        <h1 class="finish"></h1>
     </div>
     <script src="./script.js"></script>
 </body>
