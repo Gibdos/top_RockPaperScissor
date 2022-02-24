@@ -5,6 +5,9 @@ const computerChoice = ['Rock', 'Paper', 'Scissors']
 const paraPcChoice = document.querySelector('.pcScore');
 const paraNpcChoice = document.querySelector('.npcScore');
 const paraRound = document.querySelector('.round');
+const paraWinOrLoose = document.querySelector('.WinOrLoose');
+const paraGameOver = document.querySelector('.gameOver');
+const windowOverlay = document.querySelector('.overlay');
 const h1Finish = document.querySelector('.finish');
 const roboRock = document.querySelector('.roboRock');
 const roboPaper = document.querySelector('.roboPaper');
@@ -20,33 +23,51 @@ function playRound(playerSelection, computerSelection) {
     if (computerSelection === 'ROCK') {
         roboRock.style.backgroundColor = 'rebeccapurple';
         if (playerSelection === 'SCISSORS') {
+            paraWinOrLoose.style.color = '#ef3038';
+            paraWinOrLoose.innerHTML = "Rock beats Scissors. Robot wins this round."
             computerScore++;
         }
         else if (playerSelection === 'ROCK') {
+            paraWinOrLoose.style.color = '#008080';
+            paraWinOrLoose.innerHTML = "Rock against Rock. No winner."
         }
         else {
+            paraWinOrLoose.style.color = '#bdb76b';
+            paraWinOrLoose.innerHTML = "Paper beats Rock. You win this round!"
             playerScore++
         }
     }
     if (computerSelection === 'SCISSORS') {
         roboScissors.style.backgroundColor = 'rebeccapurple';
         if (playerSelection === 'PAPER') {
+            paraWinOrLoose.style.color = '#ef3038';
+            paraWinOrLoose.innerHTML = "Scissors beats Paper. Robot wins this round."
             computerScore++;
         }
         else if (playerSelection === 'SCISSORS') {
+            paraWinOrLoose.style.color = '#008080';
+            paraWinOrLoose.innerHTML = "Scissors against Scissors. No winner."
         }
         else {
+            paraWinOrLoose.style.color = '#bdb76b';
+            paraWinOrLoose.innerHTML = "Rock beats Scissors. You win this round!"
             playerScore++
         }
     }
     if (computerSelection === 'PAPER') {
         roboPaper.style.backgroundColor = 'rebeccapurple';
         if (playerSelection === 'ROCK') {
+            paraWinOrLoose.style.color = '#ef3038';
+            paraWinOrLoose.innerHTML = "Paper beats Rock. Robot wins this round."
             computerScore++;
         }
         else if (playerSelection === 'PAPER') {
+            paraWinOrLoose.style.color = '#008080';
+            paraWinOrLoose.innerHTML = "Paper against Paper. No winner."
         }
         else {
+            paraWinOrLoose.style.color = '#bdb76b';
+            paraWinOrLoose.innerHTML = "Scissors beats Paper. You win this round!"
             playerScore++
         }
     }
@@ -62,7 +83,7 @@ function playRound(playerSelection, computerSelection) {
         } else {
             btnDisable();
         }
-    }, 500);
+    }, 300);
   }
 
 function game(playerChoice) {
@@ -105,20 +126,23 @@ function finishGame() {
     if (playerScore > computerScore) {
         computerScore = 0;
         playerScore = 0;
-        paraRound.style.color = "#bdb76b"
-        paraRound.innerHTML = 'YOU WIN'
+        paraGameOver.style.color = "#bdb76b"
+        paraGameOver.innerHTML += '🏆 You won! 🏆'
     } 
     else if (playerScore < computerScore) {
         computerScore = 0;
         playerScore = 0;
-        paraRound.style.color = "#ef3038"
-        paraRound.innerHTML = 'YOU LOOSE'
+        paraGameOver.style.color = "#ef3038"
+        paraGameOver.innerHTML += '❌ Robot won! ❌'
     } else {
         computerScore = 0;
         playerScore = 0;
-        paraRound.style.color = "#008080"
-        paraRound.innerHTML = `IT'S A TIE!`
+        paraGameOver.style.color = "#008080"
+        paraGameOver.innerHTML += `🎲 It's a tie! 🎲`
     }
+    document.body.style.overflow = 'hidden';
+    windowOverlay.classList.remove('hidden');
+    paraGameOver.classList.remove('hidden')
     btnReset.classList.remove('hidden');
 }
 
@@ -128,7 +152,13 @@ function restartGame() {
     round = 0;
     paraRound.innerHTML = 'Round ' + round + ' / 5'
     paraRound.style.color = "white";
+    paraWinOrLoose.style.color = "white";
+    paraWinOrLoose.innerHTML = `Ready to Play`;
     btnReset.classList.add('hidden')
+    paraGameOver.classList.add('hidden')
+    paraGameOver.innerHTML = 'Game Over<br />'
+    windowOverlay.classList.add('hidden')
+    document.body.style.overflow = 'auto'
     playerRock.disabled = false;
     playerPaper.disabled = false;
     playerScissors.disabled = false;

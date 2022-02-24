@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <div class="overlay hidden">
+        <p class="gameOver hidden">Game Over<br /></p>
+        <button class="reset hidden" onclick="restartGame()">RESTART</button>
+    </div>
+    <div class="modal">
+    </div>
     <h1 class="title">Rock, Paper, Scissors</h1>
     <p>Choose your weapon</p>
     <div class="grid choice">
@@ -16,14 +22,14 @@
         <button class="paper" onclick="choosepaper()"></button>
         <button class="scissors" onclick="choosescissors()"></button>
     </div>
-        <p>The Computer chose</p>
+        <p>The Robot chose</p>
         <div class="roboChoice grid">
         <button class="roboRock"></button>
         <button class="roboPaper"></button>
         <button class="roboScissors"></button>
     </div>
-    <p class="round">Round 0 / 5 </p>
-    <button class="reset hidden" onclick="restartGame()">RESTART</button>
+    <p class="WinOrLoose">Ready to Play</p>
+    <!-- <button class="reset hidden" onclick="restartGame()">RESTART</button> -->
 
     <div class="score grid">
         <div class="card">
@@ -31,6 +37,7 @@
             <p class="pcScore">0</p>
         </div>
         <div class="card">
+            <p class="round">Round 0 / 5</p>
             <h2>Score</h2>
         </div>
         <div class="card">
