@@ -83,7 +83,7 @@ function playRound(playerSelection, computerSelection) {
         } else {
             btnDisable();
         }
-    }, 300);
+    }, 500);
   }
 
 function game(playerChoice) {
