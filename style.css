@@ -135,8 +135,9 @@ button {
     }
     .score {
         grid-template-columns: 1fr 1fr;
+        margin-bottom: 3em;
   }
-
+}
 @media (max-width: 500px) {
     .choice, .roboChoice { 
     grid-template-columns: 1fr 1fr 1fr; 
@@ -145,6 +146,7 @@ button {
 
     .score {
         grid-template-columns: 1fr 1fr;
+        margin-bottom: 3em;
     }
 }
 
